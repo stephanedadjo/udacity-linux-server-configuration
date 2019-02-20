@@ -26,7 +26,8 @@ step1:  Start a new Ubuntu Linux server instance on Amazon Lightsail
     * Keep the default name provided by AWS or rename your instance
     * Click the Create button to create the instance
     * Wait for the instance to start up
-    
+  Reference
+    * How to create a Server on Amazon Lightsail
 
 Step 2: Update and upgrade installed packages.
 
@@ -83,6 +84,9 @@ Allow ports 80(TCP), 123(UDP), and 2200(TCP), and deny the default port 22.
 
 From your local terminal, run: ssh -i ~/.ssh/grader_key -p 2200 grader@3.88.91.5, where 3.88.91.5 is the public IP address of the instance.
 
+References
+    * Official Ubuntu Documentation: UFW - Uncomplicated Firewall
+    * TechRepublic: How to install and use Uncomplicated Firewall in Ybuntu
 
 
 Step 5: Create a new user account named grader
@@ -113,10 +117,13 @@ User grader may run the following commands on ip-172-26-6-66.internal:
     (ALL : ALL) ALL
 Resources
 
-
+References
+    * DigitalOcean: How to add and delete Users on an Ubuntu 14.04 VPS
+    
 Step 7: Create an SSH key pair for grader using the ssh-keygen tool
 
 On the local machine:
+
 Run ssh-keygen
 Enter file in which to save the key (I gave the name grader_key) in the local directory ~/.ssh
 Enter in a passphrase twice. Two files will be generated ( ~/.ssh/grader_key and ~/.ssh/grader_key.pub)
@@ -130,6 +137,8 @@ Check in /etc/ssh/sshd_config file if PasswordAuthentication is set to no
 Restart SSH: sudo service ssh restart
 On the local machine, run: ssh -i ~/.ssh/grader_key -p 2200 grader@3.88.91.5
 
+References
+    * DigitalOcean: How to Set Up SSH Keys
 Prepare to deploy the project
 
 Step 9: Configure the local timezone to UTC
@@ -223,6 +232,8 @@ Run psql and then run \l to see that the new database has been created. The outp
 
 Exit psql: \q.
 
+Reference
+    * DigitalOcean: How to secure PostgreSQL on an Ubuntu VPS
 Step 12: Install git
 While logged in as grader, install git: sudo apt-get install git.
 Deploy the Item Catalog project
@@ -273,6 +284,10 @@ pip install sqlalchemy
 pip install flask
 sudo apt-get install libpq-dev
 pip install psycopg2
+
+References
+    * Flask Documentation: Virtualenv
+    * Create a python Virtual environment
 
 
 Run python __init__.py and you should see:
